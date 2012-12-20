@@ -181,17 +181,19 @@ Equation* e;
 // 試しにわざとエラーになるようにしてみましょう。
 // 同じ式で期待値をわざと変えてみました。
 
-// x^2 - (2+2i)x + 1 = 0 をテスト
+/*//課題３
+// x^2 - 3 = 0 をテスト
 //実数解1つと虚数解1つの場合
 - (void)test8
 {
-    e = [[Equation alloc] initWithA:1 b:-2-2i c:-4i];
+    e = [[Equation alloc] initWithA:1 b:0 c:-3];
     
     // STAssertEqualsWithAccuracy は浮動小数点演算をテストするときに使います。
     // 浮動小数点演算では誤差が発生するので，誤差の範囲内で等しいことを確かめる必要があります。
     // accuracy とは誤差のことです。
-    STAssertEqualsWithAccuracy(2.0, [e real1], 0.00001, @"real1 error");
-    STAssertEqualsWithAccuracy(0.0, [e real2], 0.00001, @"real2 error");
+    STAssertEqualsWithAccuracy(1.0+sqrt(3.0), [e real1], 0.00001, @"real1 error");
+    STAssertEqualsWithAccuracy(1.0-sqrt(3.0), [e real2],0.00001, @"real2 error");
     STAssertEqualsWithAccuracy(0.0, [e imaginary1], 0.00001, @"imaginary1 error");
-    STAssertEqualsWithAccuracy(2.0, [e imaginary2], 0.00001, @"imaginary2 error");
-}@end
+    STAssertEqualsWithAccuracy(0.0, [e imaginary2], 0.00001, @"imaginary2 error");
+}*/
+@end
